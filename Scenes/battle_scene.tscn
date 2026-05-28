@@ -224,6 +224,7 @@ layout_mode = 2
 [node name="PlayerName" type="Label" parent="UI/MainUI/BottomBar/PlayerContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
+theme_override_colors/font_outline_color = Color(0.32720026, 0.2848394, 0.17605177, 1)
 theme_override_font_sizes/font_size = 22
 text = "Geralt Of Rivia"
 
