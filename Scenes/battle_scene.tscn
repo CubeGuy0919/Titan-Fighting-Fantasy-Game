@@ -1,18 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxiese4mvi1wm"]
+[gd_scene load_steps=21 format=3 uid="uid://bxiese4mvi1wm"]
 
 [ext_resource type="Script" uid="uid://c3cxy1bf74fov" path="res://Scripts/BattleManager.cs" id="1_b25br"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b25br"]
-bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[ext_resource type="Texture2D" uid="uid://bh50x6or776a5" path="res://Art/progress bar most rounded progress green.png" id="1_hdvqd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdvqd"]
 bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8)
@@ -39,18 +28,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vol83"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5vbs"]
-bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gnqe"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -148,135 +125,149 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-expand_mode = 1
-stretch_mode = 6
-
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="MainUI" type="Control" parent="UI"]
-layout_mode = 3
+[node name="MainUI" type="VBoxContainer" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopBar" type="PanelContainer" parent="UI/MainUI"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 120.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_b25br")
-
-[node name="EnemyContainer" type="MarginContainer" parent="UI/MainUI/TopBar"]
+[node name="EnemyPanel" type="PanelContainer" parent="UI/MainUI"]
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/TopBar/EnemyContainer"]
+[node name="EnemyContainer" type="MarginContainer" parent="UI/MainUI/EnemyPanel"]
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 
-[node name="EnemyPortrait" type="TextureRect" parent="UI/MainUI/TopBar/EnemyContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/TopBar/EnemyContainer/HBoxContainer"]
+[node name="EnemyPortrait" type="TextureRect" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
 layout_mode = 2
 
-[node name="EnemyName" type="Label" parent="UI/MainUI/TopBar/EnemyContainer/HBoxContainer/VBoxContainer"]
+[node name="EnemyInfo" type="VBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyName" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
 theme_override_font_sizes/font_size = 30
 text = "GOBLIN RAIDER"
 
-[node name="EnemyHPBar" type="TextureProgressBar" parent="UI/MainUI/TopBar/EnemyContainer/HBoxContainer/VBoxContainer"]
+[node name="EnemyLevel" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
+theme_override_font_sizes/font_size = 30
+text = "GOBLIN RAIDER"
+
+[node name="EnemyStatus" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
+theme_override_font_sizes/font_size = 30
+text = "GOBLIN RAIDER"
+
+[node name="EnemyHPBar" type="TextureProgressBar" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 layout_mode = 2
 
-[node name="BottomBar" type="PanelContainer" parent="UI/MainUI"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -38.0
-offset_bottom = 102.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Battlefiled" type="Control" parent="UI/MainUI"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="UI/MainUI/Battlefiled"]
+layout_mode = 0
+offset_right = 1260.0
+offset_bottom = 648.0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BottomSection" type="VBoxContainer" parent="UI/MainUI"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerPanel" type="PanelContainer" parent="UI/MainUI/BottomSection"]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hdvqd")
 
-[node name="PlayerContainer" type="MarginContainer" parent="UI/MainUI/BottomBar"]
+[node name="PlayerContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/BottomBar/PlayerContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer"]
 layout_mode = 2
 
-[node name="PlayerPortrait" type="TextureRect" parent="UI/MainUI/BottomBar/PlayerContainer/HBoxContainer"]
+[node name="PlayerPortrait" type="TextureRect" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/BottomBar/PlayerContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="PlayerManaBar" type="TextureProgressBar" parent="UI/MainUI/BottomBar/PlayerContainer/HBoxContainer/VBoxContainer"]
+[node name="PlayerManaBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="PlayerName" type="Label" parent="UI/MainUI/BottomBar/PlayerContainer/HBoxContainer/VBoxContainer"]
+[node name="PlayerName" type="Label" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_colors/font_outline_color = Color(0.32720026, 0.2848394, 0.17605177, 1)
 theme_override_font_sizes/font_size = 22
 text = "Geralt Of Rivia"
 
-[node name="PlayerHPBar" type="TextureProgressBar" parent="UI/MainUI/BottomBar/PlayerContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+[node name="HPBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 28)
+layout_direction = 2
 layout_mode = 2
-tint_under = Color(0.54509807, 0.11764706, 0.11764706, 1)
-tint_over = Color(0.13333334, 0.13333334, 0.13333334, 1)
+size_flags_vertical = 3
+value = 75.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_hdvqd")
+texture_progress = ExtResource("1_hdvqd")
+tint_under = Color(0.13333334, 0.13333334, 0.13333334, 1)
+tint_progress = Color(0.54509807, 0.11764706, 0.11764706, 1)
 
-[node name="PlayerLuckBar" type="TextureProgressBar" parent="UI/MainUI/BottomBar/PlayerContainer/HBoxContainer/VBoxContainer"]
+[node name="LuckBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 
-[node name="CombatLogPanel" type="PanelContainer" parent="UI/MainUI"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="ManaBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+
+[node name="CombatLogPanel" type="PanelContainer" parent="UI/MainUI/BottomSection"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_anwxn")
 
-[node name="CombatLog" type="RichTextLabel" parent="UI/MainUI/CombatLogPanel"]
+[node name="CombatLog" type="RichTextLabel" parent="UI/MainUI/BottomSection/CombatLogPanel"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_vol83")
+bbcode_enabled = true
 
-[node name="ActionMenuPanel" type="PanelContainer" parent="UI/MainUI"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -60.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_e5vbs")
+[node name="ActionMenuPanel" type="PanelContainer" parent="UI/MainUI/BottomSection"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/ActionMenuPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/ActionMenuPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="ActionMenu" type="HBoxContainer" parent="UI/MainUI/ActionMenuPanel/MarginContainer"]
+[node name="ActionMenu" type="HBoxContainer" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="AttackButton" type="Button" parent="UI/MainUI/ActionMenuPanel/MarginContainer/ActionMenu"]
-custom_minimum_size = Vector2(160, 60)
+[node name="AttackButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
+custom_minimum_size = Vector2(160, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_font_sizes/font_size = 24
@@ -285,7 +276,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_f856b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ms847")
 text = "ATTACk"
 
-[node name="MagicButton" type="Button" parent="UI/MainUI/ActionMenuPanel/MarginContainer/ActionMenu"]
+[node name="MagicButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
@@ -295,7 +286,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_778cw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f4ggb")
 text = "MAGIC"
 
-[node name="ItemButton" type="Button" parent="UI/MainUI/ActionMenuPanel/MarginContainer/ActionMenu"]
+[node name="ItemButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
@@ -305,7 +296,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vuvll")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wb0gu")
 text = "ITEM"
 
-[node name="DefendButton" type="Button" parent="UI/MainUI/ActionMenuPanel/MarginContainer/ActionMenu"]
+[node name="DefendButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
@@ -315,7 +306,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_tfvgr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_84vmf")
 text = "DEFEND"
 
-[node name="EscapeButton" type="Button" parent="UI/MainUI/ActionMenuPanel/MarginContainer/ActionMenu"]
+[node name="EscapeButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
