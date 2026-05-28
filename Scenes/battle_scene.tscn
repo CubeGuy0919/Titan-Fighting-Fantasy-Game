@@ -15,20 +15,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anwxn"]
-bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vol83"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gnqe"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 border_width_left = 2
@@ -119,6 +105,20 @@ bg_color = Color(0.47843137, 0.16862746, 0.16862746, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdap8"]
 bg_color = Color(0.3529412, 0.11764706, 0.11764706, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anwxn"]
+bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vol83"]
+
 [node name="BattleScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -174,6 +174,10 @@ text = "GOBLIN RAIDER"
 
 [node name="EnemyHPBar" type="TextureProgressBar" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 layout_mode = 2
+nine_patch_stretch = true
+texture_under = ExtResource("1_hdvqd")
+texture_progress = ExtResource("1_hdvqd")
+tint_progress = Color(0.82191056, 2.623126e-06, 7.70092e-07, 1)
 
 [node name="Battlefiled" type="Control" parent="UI/MainUI"]
 custom_minimum_size = Vector2(0, 400)
@@ -197,6 +201,72 @@ custom_minimum_size = Vector2(400, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hdvqd")
+
+[node name="ActionMenuPanel" type="PanelContainer" parent="UI/MainUI/BottomSection/PlayerPanel"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="ActionMenu" type="HBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="AttackButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_3gnqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f856b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ms847")
+text = "ATTACk"
+
+[node name="MagicButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gt16y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_778cw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f4ggb")
+text = "MAGIC"
+
+[node name="ItemButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_20f6w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vuvll")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wb0gu")
+text = "ITEM"
+
+[node name="DefendButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w4764")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tfvgr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_84vmf")
+text = "DEFEND"
+
+[node name="EscapeButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ed262")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kbww3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xdap8")
+text = "ESCAPE"
 
 [node name="PlayerContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel"]
 layout_mode = 2
@@ -224,24 +294,32 @@ text = "Geralt Of Rivia"
 custom_minimum_size = Vector2(150, 28)
 layout_direction = 2
 layout_mode = 2
-size_flags_vertical = 3
-value = 75.0
+value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_hdvqd")
 texture_progress = ExtResource("1_hdvqd")
-tint_under = Color(0.13333334, 0.13333334, 0.13333334, 1)
 tint_progress = Color(0.54509807, 0.11764706, 0.11764706, 1)
 
 [node name="LuckBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 22)
+custom_minimum_size = Vector2(150, 22)
 layout_mode = 2
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_hdvqd")
+texture_progress = ExtResource("1_hdvqd")
+tint_progress = Color(0.7044742, 0.5318882, 0, 1)
 
 [node name="ManaBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_hdvqd")
+texture_progress = ExtResource("1_hdvqd")
+tint_progress = Color(0.023529412, 0.24313726, 1, 1)
 
 [node name="CombatLogPanel" type="PanelContainer" parent="UI/MainUI/BottomSection"]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_anwxn")
 
@@ -249,72 +327,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_anwxn")
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_vol83")
 bbcode_enabled = true
-
-[node name="ActionMenuPanel" type="PanelContainer" parent="UI/MainUI/BottomSection"]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/ActionMenuPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
-
-[node name="ActionMenu" type="HBoxContainer" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="AttackButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
-custom_minimum_size = Vector2(160, 100)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_3gnqe")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_f856b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ms847")
-text = "ATTACk"
-
-[node name="MagicButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
-custom_minimum_size = Vector2(160, 60)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_gt16y")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_778cw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_f4ggb")
-text = "MAGIC"
-
-[node name="ItemButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
-custom_minimum_size = Vector2(160, 60)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_20f6w")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_vuvll")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wb0gu")
-text = "ITEM"
-
-[node name="DefendButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
-custom_minimum_size = Vector2(160, 60)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_w4764")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tfvgr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_84vmf")
-text = "DEFEND"
-
-[node name="EscapeButton" type="Button" parent="UI/MainUI/BottomSection/ActionMenuPanel/MarginContainer/ActionMenu"]
-custom_minimum_size = Vector2(160, 60)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ed262")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kbww3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xdap8")
-text = "ESCAPE"
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_b25br")
