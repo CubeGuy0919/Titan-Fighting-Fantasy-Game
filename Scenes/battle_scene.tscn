@@ -1,19 +1,55 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxiese4mvi1wm"]
+[gd_scene load_steps=23 format=3 uid="uid://bxiese4mvi1wm"]
 
 [ext_resource type="Script" uid="uid://c3cxy1bf74fov" path="res://Scripts/BattleManager.cs" id="1_b25br"]
 [ext_resource type="Texture2D" uid="uid://bh50x6or776a5" path="res://Art/progress bar most rounded progress green.png" id="1_hdvqd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdvqd"]
-bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5vbs"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdvqd"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kre2b"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gnqe"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -106,16 +142,20 @@ bg_color = Color(0.47843137, 0.16862746, 0.16862746, 1)
 bg_color = Color(0.3529412, 0.11764706, 0.11764706, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anwxn"]
-bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8)
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vol83"]
 
@@ -134,10 +174,13 @@ anchor_bottom = 1.0
 offset_right = 108.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="EnemyPanel" type="PanelContainer" parent="UI/MainUI"]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e5vbs")
 
 [node name="EnemyContainer" type="MarginContainer" parent="UI/MainUI/EnemyPanel"]
 custom_minimum_size = Vector2(0, 140)
@@ -205,6 +248,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hdvqd")
 [node name="ActionMenuPanel" type="PanelContainer" parent="UI/MainUI/BottomSection/PlayerPanel"]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kre2b")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel"]
 layout_mode = 2
@@ -217,6 +261,10 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
+
+[node name="Control" type="Control" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="AttackButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
 custom_minimum_size = Vector2(160, 100)
@@ -275,13 +323,12 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PlayerPortrait" type="TextureRect" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer"]
 layout_mode = 2
-
-[node name="PlayerManaBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="PlayerName" type="Label" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
