@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bxiese4mvi1wm"]
+[gd_scene load_steps=24 format=3 uid="uid://bxiese4mvi1wm"]
 
 [ext_resource type="Script" uid="uid://c3cxy1bf74fov" path="res://Scripts/BattleManager.cs" id="1_b25br"]
 [ext_resource type="Texture2D" uid="uid://bh50x6or776a5" path="res://Art/progress bar most rounded progress green.png" id="1_hdvqd"]
+[ext_resource type="Texture2D" uid="uid://ej2d2m4rnpgv" path="res://Art/BG_VOID DRAGON.png" id="2_anwxn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5vbs"]
 content_margin_left = 8.0
@@ -231,8 +232,21 @@ size_flags_vertical = 3
 layout_mode = 0
 offset_right = 1260.0
 offset_bottom = 648.0
+texture = ExtResource("2_anwxn")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="SmokeEffect" type="GPUParticles2D" parent="UI/MainUI/Battlefiled"]
+position = Vector2(298, 87)
+
+[node name="FireEffect" type="GPUParticles2D" parent="UI/MainUI/Battlefiled"]
+position = Vector2(298, 87)
+
+[node name="VoidDragon" type="Node2D" parent="UI/MainUI/Battlefiled"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/MainUI/Battlefiled/VoidDragon"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainUI/Battlefiled/VoidDragon"]
 
 [node name="BottomSection" type="VBoxContainer" parent="UI/MainUI"]
 custom_minimum_size = Vector2(0, 200)
