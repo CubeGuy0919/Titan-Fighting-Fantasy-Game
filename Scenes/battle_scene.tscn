@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://bxiese4mvi1wm"]
+[gd_scene load_steps=25 format=3 uid="uid://bxiese4mvi1wm"]
 
 [ext_resource type="Script" uid="uid://c3cxy1bf74fov" path="res://Scripts/BattleManager.cs" id="1_b25br"]
+[ext_resource type="Texture2D" uid="uid://b114bpwyyd37u" path="res://Art/VoidDragon Profile.png" id="1_e5vbs"]
 [ext_resource type="Texture2D" uid="uid://bh50x6or776a5" path="res://Art/progress bar most rounded progress green.png" id="1_hdvqd"]
 [ext_resource type="Texture2D" uid="uid://ej2d2m4rnpgv" path="res://Art/BG_VOID DRAGON.png" id="2_anwxn"]
 
@@ -193,30 +194,37 @@ layout_mode = 2
 [node name="EnemyPortrait" type="TextureRect" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer"]
 custom_minimum_size = Vector2(160, 160)
 layout_mode = 2
+texture = ExtResource("1_e5vbs")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
 
 [node name="EnemyInfo" type="VBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="EnemyName" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
 theme_override_font_sizes/font_size = 30
-text = "GOBLIN RAIDER"
+text = "VOID DRAGON"
 
 [node name="EnemyLevel" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
 theme_override_font_sizes/font_size = 30
-text = "GOBLIN RAIDER"
+text = "LEVEL X"
 
 [node name="EnemyStatus" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
 theme_override_font_sizes/font_size = 30
-text = "GOBLIN RAIDER"
+text = "STAT"
 
 [node name="EnemyHPBar" type="TextureProgressBar" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 nine_patch_stretch = true
 texture_under = ExtResource("1_hdvqd")
