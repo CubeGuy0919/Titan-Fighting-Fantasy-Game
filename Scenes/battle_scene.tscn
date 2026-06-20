@@ -1,27 +1,24 @@
-[gd_scene format=3 uid="uid://bxiese4mvi1wm"]
+[gd_scene load_steps=46 format=3 uid="uid://bxiese4mvi1wm"]
 
 [ext_resource type="Script" uid="uid://c3cxy1bf74fov" path="res://Scripts/BattleManager.cs" id="1_b25br"]
 [ext_resource type="Texture2D" uid="uid://b114bpwyyd37u" path="res://Art/VoidDragon Profile.png" id="1_e5vbs"]
 [ext_resource type="Texture2D" uid="uid://dcvaky5ac6eeb" path="res://Art/UI/Progress Bar - BG.png" id="2_3gnqe"]
-[ext_resource type="Texture2D" uid="uid://ej2d2m4rnpgv" path="res://Art/BG_VOID DRAGON.png" id="2_anwxn"]
+[ext_resource type="Texture2D" uid="uid://wr4hkx8b4a77" path="res://Art/BG_VOID DRAGON v3.jpg" id="3_e5vbs"]
+[ext_resource type="Texture2D" uid="uid://joaabvf76mwq" path="res://Art/UI/Icons/HP Heart Red UI.png" id="3_vuvll"]
+[ext_resource type="Texture2D" uid="uid://dsug8lmpo243d" path="res://Art/Geralt OF Rivia Profile.png" id="4_3gnqe"]
+[ext_resource type="Script" uid="uid://cpa3cqol1o8tw" path="res://Scripts/VoidDragon.cs" id="4_ed262"]
+[ext_resource type="Texture2D" uid="uid://byywkha7k0ic2" path="res://Art/Animations_Void Dragon/Idle_Void Dragon.png" id="4_gt16y"]
+[ext_resource type="Texture2D" uid="uid://dnera7aleln37" path="res://Art/Animations_Void Dragon/Idle v2_Void Dragon.png" id="5_20f6w"]
+[ext_resource type="Texture2D" uid="uid://cs0xi3bn5exbq" path="res://Art/Animations_Void Dragon/Idle_Stock_Void Dragon.png" id="6_ed262"]
+[ext_resource type="Script" uid="uid://crwkhkyoq1gas" path="res://Scripts/ActionMenu.cs" id="8_f4ggb"]
+[ext_resource type="FontFile" uid="uid://b5ka3doitfmxw" path="res://FontStyles/ByteBounce.ttf" id="9_xdap8"]
+[ext_resource type="Script" uid="uid://bqi4j3spbc5nu" path="res://Scripts/CombatLog.cs" id="10_f4ggb"]
+[ext_resource type="Script" uid="uid://cudd8xp0dh66f" path="res://Scripts/Player.cs" id="10_wb0gu"]
+[ext_resource type="Texture2D" uid="uid://bqxhrd8cflglp" path="res://Art/UI/Icons/HP Heart Green UI.png" id="12_xdap8"]
+[ext_resource type="Texture2D" uid="uid://cssaq2tot7qfr" path="res://Art/UI/Icons/Luck UI.png" id="13_778cw"]
+[ext_resource type="Texture2D" uid="uid://jeb0463535c4" path="res://Art/UI/Icons/Stamina Blue UI.png" id="13_f856b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5vbs"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdvqd"]
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
@@ -53,6 +50,127 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_f856b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vuvll")
+}],
+"loop": true,
+"name": &"HP_ENEMY",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_xdap8")
+}],
+"loop": true,
+"name": &"HP_PLAYER",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_778cw")
+}],
+"loop": true,
+"name": &"LUCK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_f856b")
+}],
+"loop": true,
+"name": &"STAMINA",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys5i7"]
+bg_color = Color(0.27973124, 0.69585747, 0.4337728, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.251179, 0.1258131, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20f6w"]
+atlas = ExtResource("4_gt16y")
+region = Rect2(0, 0, 1536, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms847"]
+atlas = ExtResource("6_ed262")
+region = Rect2(0, 0, 1536, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4764"]
+atlas = ExtResource("5_20f6w")
+region = Rect2(0, 0, 1536, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed262"]
+atlas = ExtResource("5_20f6w")
+region = Rect2(0, 512, 1536, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5vbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20f6w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms847")
+}],
+"loop": true,
+"name": &"Idle Stock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4764")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed262")
+}],
+"loop": true,
+"name": &"Idle v2",
+"speed": 1.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gdnp"]
+bg_color = Color(0.39308554, 0.39308554, 0.39308533, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2123048, 0.21230489, 0.21230468, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdvqd"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gnqe"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 border_width_left = 2
@@ -67,9 +185,27 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f856b"]
 bg_color = Color(0.47843137, 0.16862746, 0.16862746, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23394531, 0.065092854, 0.065240376, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms847"]
-bg_color = Color(0.3529412, 0.11764706, 0.11764706, 1)
+bg_color = Color(0.38965568, 0.13290337, 0.13305816, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13213396, 0.025059506, 0.025087385, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt16y"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -84,10 +220,28 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_778cw"]
-bg_color = Color(0.47843137, 0.16862746, 0.16862746, 1)
+bg_color = Color(0.09192438, 0.15082914, 0.31130588, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.05505137, 0.09914271, 0.21890259, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4ggb"]
-bg_color = Color(0.3529412, 0.11764706, 0.11764706, 1)
+bg_color = Color(0.1764706, 0.27058825, 0.5176471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.022432266, 0.050593473, 0.13313207, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20f6w"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -102,10 +256,28 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuvll"]
-bg_color = Color(0.47843137, 0.16862746, 0.16862746, 1)
+bg_color = Color(0.14361534, 0.096529506, 0.056463055, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0862763, 0.052723534, 0.025819242, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb0gu"]
-bg_color = Color(0.3529412, 0.11764706, 0.11764706, 1)
+bg_color = Color(0.24073511, 0.17097479, 0.11165541, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.10220102, 0.0635925, 0.03409291, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4764"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -120,10 +292,28 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfvgr"]
-bg_color = Color(0.47843137, 0.16862746, 0.16862746, 1)
+bg_color = Color(0.015167792, 0.16549057, 0.15874597, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.00455814, 0.08488507, 0.07960949, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84vmf"]
-bg_color = Color(0.3529412, 0.11764706, 0.11764706, 1)
+bg_color = Color(0.038630884, 0.27561003, 0.26124164, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0072519775, 0.10695139, 0.10199786, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed262"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
@@ -138,10 +328,28 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbww3"]
-bg_color = Color(0.47843137, 0.16862746, 0.16862746, 1)
+bg_color = Color(0.21112823, 0.034220975, 0.25466812, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16418093, 0.02144036, 0.20004776, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdap8"]
-bg_color = Color(0.3529412, 0.11764706, 0.11764706, 1)
+bg_color = Color(0.32782516, 0.07162223, 0.39309403, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12156863, 0.011764706, 0.14901961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anwxn"]
 content_margin_left = 8.0
@@ -161,7 +369,7 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vol83"]
 
-[node name="BattleScene" type="Control" unique_id=2120552482]
+[node name="BattleScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -173,24 +381,34 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1009177651]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="MainUI" type="VBoxContainer" parent="UI" unique_id=1778366289]
+[node name="MainUI" type="VBoxContainer" parent="UI"]
 custom_minimum_size = Vector2(1280, 720)
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 1.0
+offset_right = -3.0
 offset_bottom = 860.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="EnemyPanel" type="PanelContainer" parent="UI/MainUI" unique_id=1551764241]
+[node name="EnemyPanel" type="PanelContainer" parent="UI/MainUI"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e5vbs")
 
-[node name="EnemyContainer" type="MarginContainer" parent="UI/MainUI/EnemyPanel" unique_id=1815752194]
+[node name="EnemyItemsPanel" type="PanelContainer" parent="UI/MainUI/EnemyPanel"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kre2b")
+
+[node name="EnemyContainer" type="MarginContainer" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_constants/margin_left = 5
@@ -198,177 +416,313 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyContainer" unique_id=750257238]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer"]
 layout_mode = 2
 
-[node name="EnemyPortrait" type="TextureRect" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer" unique_id=325549626]
+[node name="EnemyPortrait" type="TextureRect" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer"]
 custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 texture = ExtResource("1_e5vbs")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Control" type="Control" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer" unique_id=651559583]
+[node name="Control" type="Control" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
-[node name="EnemyInfo" type="VBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer" unique_id=2083144498]
+[node name="EnemyInfo" type="VBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="EnemyName" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo" unique_id=1544524565]
+[node name="EnemyName" type="Label" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
 theme_override_font_sizes/font_size = 30
 text = "VOID DRAGON"
 
-[node name="EnemyLevel" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo" unique_id=1677539802]
+[node name="EnemyLevel" type="Label" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
 theme_override_font_sizes/font_size = 30
 text = "LEVEL X"
 
-[node name="EnemyStatus" type="Label" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo" unique_id=447446706]
+[node name="EnemyStatus" type="Label" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.81960785, 0.29411766, 0.29411766, 1)
 theme_override_font_sizes/font_size = 30
 text = "STAT"
 
-[node name="EnemyHPBar" type="TextureProgressBar" parent="UI/MainUI/EnemyPanel/EnemyContainer/HBoxContainer/EnemyInfo" unique_id=1446559777]
+[node name="EnemyHPBar" type="TextureProgressBar" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer/EnemyInfo"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
-value = 30.0
+value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("2_3gnqe")
 texture_progress = ExtResource("2_3gnqe")
 tint_progress = Color(0.67230505, 1.8169359e-06, 3.85046e-07, 1)
 
-[node name="Battlefiled" type="Control" parent="UI/MainUI" unique_id=1945674092]
+[node name="UI_HP" type="AnimatedSprite2D" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer/EnemyInfo/EnemyHPBar"]
+position = Vector2(184, 18)
+scale = Vector2(0.475, 0.45)
+sprite_frames = SubResource("SpriteFrames_f856b")
+animation = &"HP_ENEMY"
+
+[node name="GameInfo" type="VBoxContainer" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TurnIndicatorLabel" type="Label" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer/GameInfo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9971017, 0.9715796, 0.9692015, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ys5i7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnIndicator" type="RichTextLabel" parent="UI/MainUI/EnemyPanel/EnemyItemsPanel/EnemyContainer/HBoxContainer/GameInfo/TurnIndicatorLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 36.0
+theme_override_font_sizes/normal_font_size = 24
+text = "PLAYER'S TURN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Battlefiled" type="Control" parent="UI/MainUI"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Background" type="TextureRect" parent="UI/MainUI/Battlefiled" unique_id=1077297850]
+[node name="Background" type="TextureRect" parent="UI/MainUI/Battlefiled"]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
 offset_top = -4.0
-offset_right = 1277.5
-offset_bottom = 549.0
-texture = ExtResource("2_anwxn")
+offset_right = -2.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5vbs")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="SmokeEffect" type="GPUParticles2D" parent="UI/MainUI/Battlefiled" unique_id=1064310247]
+[node name="SmokeEffect" type="GPUParticles2D" parent="UI/MainUI/Battlefiled"]
 position = Vector2(298, 87)
 
-[node name="FireEffect" type="GPUParticles2D" parent="UI/MainUI/Battlefiled" unique_id=865437870]
+[node name="FireEffect" type="GPUParticles2D" parent="UI/MainUI/Battlefiled"]
 position = Vector2(298, 87)
 
-[node name="VoidDragon" type="Node2D" parent="UI/MainUI/Battlefiled" unique_id=198774578]
+[node name="VoidDragon" type="Node2D" parent="UI/MainUI/Battlefiled"]
+unique_name_in_owner = true
+script = ExtResource("4_ed262")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/MainUI/Battlefiled/VoidDragon" unique_id=1192911581]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/MainUI/Battlefiled/VoidDragon"]
+position = Vector2(834, 221)
+scale = Vector2(0.81290686, 0.75140446)
+sprite_frames = SubResource("SpriteFrames_e5vbs")
+animation = &"Idle Stock"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainUI/Battlefiled/VoidDragon" unique_id=773556670]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainUI/Battlefiled/VoidDragon"]
 
-[node name="BottomSection" type="VBoxContainer" parent="UI/MainUI" unique_id=1052004092]
+[node name="Player" type="Node2D" parent="UI/MainUI/Battlefiled"]
+unique_name_in_owner = true
+script = ExtResource("10_wb0gu")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/Battlefiled"]
+layout_mode = 0
+offset_right = 1346.0
+offset_bottom = 413.0
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 50
+
+[node name="SubMenuPanel" type="PanelContainer" parent="UI/MainUI/Battlefiled/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5gdnp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/Battlefiled/MarginContainer/SubMenuPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SubMenuTitle" type="Label" parent="UI/MainUI/Battlefiled/MarginContainer/SubMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_xdap8")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="ButtonGrid" type="HBoxContainer" parent="UI/MainUI/Battlefiled/MarginContainer/SubMenuPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="UI/MainUI/Battlefiled/MarginContainer/SubMenuPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
+theme_override_constants/h_separation = 4
+action_mode = 0
+text = "BACK"
+
+[node name="BottomSection" type="VBoxContainer" parent="UI/MainUI"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="PlayerPanel" type="PanelContainer" parent="UI/MainUI/BottomSection" unique_id=1494261056]
+[node name="PlayerPanel" type="PanelContainer" parent="UI/MainUI/BottomSection"]
 custom_minimum_size = Vector2(400, 120)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hdvqd")
 
-[node name="ActionMenuPanel" type="PanelContainer" parent="UI/MainUI/BottomSection/PlayerPanel" unique_id=1628884075]
+[node name="ActionMenuPanel" type="PanelContainer" parent="UI/MainUI/BottomSection/PlayerPanel"]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kre2b")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel" unique_id=309270889]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ActionMenu" type="HBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer" unique_id=928951641]
+[node name="ActionMenu" type="HBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 16
 alignment = 1
+script = ExtResource("8_f4ggb")
 
-[node name="Control" type="Control" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu" unique_id=1068872476]
+[node name="Control" type="Control" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AttackButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu" unique_id=1848512909]
+[node name="Control2" type="Control" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 8
+
+[node name="AttackButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 100)
 layout_mode = 2
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_3gnqe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_f856b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ms847")
+action_mode = 0
 text = "ATTACk"
 
-[node name="MagicButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu" unique_id=901186241]
+[node name="MagicButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_gt16y")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_778cw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f4ggb")
+action_mode = 0
 text = "MAGIC"
 
-[node name="ItemButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu" unique_id=2078678624]
+[node name="ItemButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_20f6w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vuvll")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wb0gu")
-text = "ITEM"
+action_mode = 0
+text = "ITEMS"
 
-[node name="DefendButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu" unique_id=148179883]
+[node name="DefendButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_w4764")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tfvgr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_84vmf")
+action_mode = 0
 text = "DEFEND"
 
-[node name="EscapeButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu" unique_id=1637080339]
+[node name="EscapeButton" type="Button" parent="UI/MainUI/BottomSection/PlayerPanel/ActionMenuPanel/MarginContainer/ActionMenu"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_ed262")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kbww3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xdap8")
+action_mode = 0
 text = "ESCAPE"
 
-[node name="PlayerContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel" unique_id=2082872454]
+[node name="PlayerContainer" type="MarginContainer" parent="UI/MainUI/BottomSection/PlayerPanel"]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer" unique_id=1411714558]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer"]
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
-[node name="PlayerPortrait" type="TextureRect" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer" unique_id=1457183799]
+[node name="PlayerPortrait" type="TextureRect" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+texture = ExtResource("4_3gnqe")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer" unique_id=940812460]
+[node name="Control2" type="Control" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="PlayerName" type="Label" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer" unique_id=75526267]
+[node name="PlayerName" type="Label" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.6392157, 1)
 theme_override_colors/font_outline_color = Color(0.32720026, 0.2848394, 0.17605177, 1)
@@ -376,7 +730,8 @@ theme_override_font_sizes/font_size = 22
 text = "Geralt Of Rivia"
 horizontal_alignment = 1
 
-[node name="HPBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer" unique_id=592072843]
+[node name="PlayerHPBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
 layout_direction = 2
 layout_mode = 2
@@ -386,7 +741,14 @@ texture_under = ExtResource("2_3gnqe")
 texture_progress = ExtResource("2_3gnqe")
 tint_progress = Color(0.54509807, 0.94509804, 0.11764706, 1)
 
-[node name="LuckBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer" unique_id=1999065684]
+[node name="UI_HP" type="AnimatedSprite2D" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer/PlayerHPBar"]
+unique_name_in_owner = true
+position = Vector2(184, 14)
+scale = Vector2(0.4, 0.378)
+sprite_frames = SubResource("SpriteFrames_f856b")
+animation = &"HP_PLAYER"
+
+[node name="LuckBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 value = 100.0
@@ -395,7 +757,14 @@ texture_under = ExtResource("2_3gnqe")
 texture_progress = ExtResource("2_3gnqe")
 tint_progress = Color(0.7044742, 0.5318882, 0, 1)
 
-[node name="ManaBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer" unique_id=508836263]
+[node name="UI_LUCK" type="AnimatedSprite2D" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer/LuckBar"]
+unique_name_in_owner = true
+position = Vector2(184, 14)
+scale = Vector2(0.24, 0.227)
+sprite_frames = SubResource("SpriteFrames_f856b")
+animation = &"LUCK"
+
+[node name="ManaBar" type="TextureProgressBar" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 value = 100.0
@@ -404,15 +773,32 @@ texture_under = ExtResource("2_3gnqe")
 texture_progress = ExtResource("2_3gnqe")
 tint_progress = Color(0.023529412, 0.24313726, 1, 1)
 
-[node name="CombatLogPanel" type="PanelContainer" parent="UI/MainUI/BottomSection" unique_id=1949569488]
+[node name="UI_STAMINA" type="AnimatedSprite2D" parent="UI/MainUI/BottomSection/PlayerPanel/PlayerContainer/HBoxContainer/VBoxContainer/ManaBar"]
+unique_name_in_owner = true
+position = Vector2(184, 15)
+scale = Vector2(0.24, 0.228)
+sprite_frames = SubResource("SpriteFrames_f856b")
+animation = &"STAMINA"
+
+[node name="CombatLogPanel" type="PanelContainer" parent="UI/MainUI/BottomSection"]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_anwxn")
 
-[node name="CombatLog" type="RichTextLabel" parent="UI/MainUI/BottomSection/CombatLogPanel" unique_id=2101599669]
+[node name="CombatLog" type="RichTextLabel" parent="UI/MainUI/BottomSection/CombatLogPanel"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/line_separation = 5
+theme_override_constants/paragraph_separation = 5
+theme_override_constants/table_h_separation = 5
+theme_override_fonts/normal_font = ExtResource("9_xdap8")
+theme_override_font_sizes/normal_font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_vol83")
 bbcode_enabled = true
+autowrap_trim_flags = 0
+justification_flags = 168
+script = ExtResource("10_f4ggb")
 
-[node name="BattleManager" type="Node" parent="." unique_id=60301]
+[node name="BattleManager" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("1_b25br")
